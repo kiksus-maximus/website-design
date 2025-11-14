@@ -4,18 +4,18 @@
     --primary: #4b2d1e;
     --primary-tint: #734d3a;
     --primary-shade: #2c180e;
-
+    
     --dark: #362d2a;
     --light: #ffffff;
-
+    
     --muted: #e8e6e5;
     --muted-tint: #f8f6f5;
     --muted-shade: #d8d6d5;
-
-
+    
+    
     --font-normal: Roboto, Arial, sans-serif;
     --font-heading: 'Noto Serif', serif;
-
+    
     --space-0: 0;
     --space-1: 0.5rem;
     --space-2: 1rem;
@@ -26,6 +26,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -46,9 +47,9 @@ p {
 .btn {
     border:none;
     border-radius: 1rem;
-
+    
     padding: var(--space-1) var(--space-2);
-
+    
     cursor: pointer;
 }
 
@@ -75,7 +76,7 @@ p {
 }
 
 .btn-secondary:active{
-    backgrund-color: var(--muted-shade);
+    background-color: var(--muted-shade);
 }
 
 .link{
@@ -113,6 +114,16 @@ p {
 .gap-1 { gap: var(--space-1); }
 .gap-2 { gap: var(--space-2); }
 .gap-3 { gap: var(--space-3); }
+
+/***************************** COMPONENT *****************************/
+.product-image img{
+    aspect-ratio: 16/9;
+    width: 100%;
+    object-fit: cover;
+
+    border: 4px solid var(--light);
+    border-radius: var(--space-2);
+}
 
 /***************************** LAYOUT *****************************/
 .d-flex { display: flex; }
