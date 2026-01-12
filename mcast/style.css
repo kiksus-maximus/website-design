@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* If you have Garet font file later, add it like:
+@font-face {
+  font-family: "Garet";
+  src: url("../fonts/Garet.woff2") format("woff2");
+  font-display: swap;
+}
+*/
+
+:root{
+    /* Style Guide Colours */
+    --navy: #000043;
+    --blue: #1363AA;
+    --light: #AAD4E6;
+    --offwhite: #FDFEFF;
+    --grey: #919AA3;
+
+    /* Shadows */
+    --shadow-dark: 0 0.15rem 0.3rem rgba(0,0,0,0.18);
+    --shadow-light: 0 0.15rem 0.3rem rgba(0,0,0,0.10);
+
+    /* Fonts */
+    --font-normal: "Poppins", Arial, sans-serif;
+    --font-heading: "Garet", "Poppins", Arial, sans-serif;
+
+    /* Spacing */
+    --space-0: 0;
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 2rem;
+}
+
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--font-normal);
+    line-height: 1.5;
+    background: var(--offwhite);
+    color: #111;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+}
+
+p{
+    margin-bottom: 0.5rem;
+}
+
+/***************************** BUTTONS *****************************/
+.btn{
+    border: none;
+    border-radius: 999px;
+    padding: var(--space-1) var(--space-2);
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-primary{
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn-primary:hover{ filter: brightness(1.06); }
+.btn-primary:active{ filter: brightness(0.95); }
+
+.btn-secondary{
+    background: var(--light);
+    color: var(--navy);
+}
+
+.btn-secondary:hover{ filter: brightness(1.03); }
+.btn-secondary:active{ filter: brightness(0.95); }
+
+.link{
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+/***************************** COLOR *****************************/
+.bg-navy{ background: var(--navy); }
+.bg-blue{ background: var(--blue); }
+.bg-light{ background: var(--light); }
+.bg-offwhite{ background: var(--offwhite); }
+.bg-grey{ background: var(--grey); }
+
+.text-navy{ color: var(--navy); }
+.text-blue{ color: var(--blue); }
+.text-light{ color: var(--light); }
+.text-grey{ color: var(--grey); }
+.text-white{ color: #fff; }
+
+/***************************** SPACING *****************************/
+.p-0{ padding: var(--space-0); }
+.p-1{ padding: var(--space-1); }
+.p-2{ padding: var(--space-2); }
+.p-3{ padding: var(--space-3); }
+
+.m-0{ margin: var(--space-0); }
+.m-1{ margin: var(--space-1); }
+.m-2{ margin: var(--space-2); }
+.m-3{ margin: var(--space-3); }
+
+.gap-0{ gap: var(--space-0); }
+.gap-1{ gap: var(--space-1); }
+.gap-2{ gap: var(--space-2); }
+.gap-3{ gap: var(--space-3); }
+
+/***************************** LAYOUT *****************************/
+.container{
+    max-width: 1280px;
+    margin: var(--space-2) auto;
+    padding: 0 var(--space-2);
+}
+
+.d-flex{ display: flex; }
+.d-grid{ display: grid; }
+
+.flex-between{ justify-content: space-between; }
+.flex-center{ align-items: center; }
+
+.grid-4col{ grid-template-columns: repeat(4, 1fr); }
+.grid-3col{ grid-template-columns: repeat(3, 1fr); }
+.grid-2col{ grid-template-columns: repeat(2, 1fr); }
+
+/***************************** TEXT *****************************/
+.line-1{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    height: 1.5em;
+    overflow: clip;
+    text-overflow: ellipsis;
+}
+
+.line-2{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    height: 3em;
+    overflow: clip;
+    text-overflow: ellipsis;
+}
+
+/***************************** BASIC SITE SHELL *****************************/
+.site-header{
+    background: var(--navy);
+    color: #fff;
+    box-shadow: var(--shadow-dark);
+}
+
+.header-top{
+    padding: 0;
+}
+
+/* Apply responsive padding to the header items (brand, searchbar) */
+.header-top > *{
+    padding: clamp(0.35rem, 0.9vw, 0.9rem) 0;
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: #fff;
+}
+
+.brand-mark{
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+    border: 2px solid rgba(255,255,255,0.25);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+}
+
+.brand-name{
+    font-size: 28px;
+    letter-spacing: .8px;
+}
+
+.searchbar{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.searchbar input{
+    width: 100%;
+    padding: var(--space-1) var(--space-2);
+    border-radius: 999px;
+    border: none;
+    font-family: var(--font-normal);
+}
+
+.site-nav{
+    background: var(--blue);
+    box-shadow: 0 6px 0 rgba(0,0,0,.12);
+}
+
+.site-nav ul{
+    list-style: none;
+    padding: var(--space-1) 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-nav li{ flex: 1; }
+.site-nav a{
+    display: block;
+    width: 100%;
+    padding: clamp(0.35rem, 0.9vw, 0.9rem) clamp(0.6rem, 1.4vw, 1.4rem);
+    background: rgba(255,255,255,.08);
+    border-radius: 14px;
+    color: #fff;
+    text-align: center;
+    min-width: initial;
+}
+
+.site-nav a:hover{ background: rgba(255,255,255,.14); }
+.site-nav a[aria-current="page"]{ background: rgba(255,255,255,.22); font-weight: 700; }
+
+.site-footer{
+    background: var(--navy);
+    color: #fff;
+    margin-top: var(--space-3);
+    padding: var(--space-2) 0;
+}
+
+/***************************** HOME SECTIONS (SKELETON) *****************************/
+.card-shell{
+    display: grid;
+    gap: var(--space-2);
+    border: 2px solid rgba(0,0,0,.35);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--offwhite);
+}
+
+.tile{
+    background: var(--navy);
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 0.8rem 1.6rem rgba(0,0,0,.22);
+    min-height: 140px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+.tile h2{
+    font-family: var(--font-normal);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.15;
+}
+
+/***************************** MOBILE *****************************/
+@media (max-width: 600px){
+    .sm-grid-1col{ grid-template-columns: 1fr; }
+    .sm-grid-2col{ grid-template-columns: repeat(2, 1fr); }
+
+    .brand-name{ font-size: 22px; }
+}
