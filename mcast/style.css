@@ -16,8 +16,7 @@
     --offwhite: #F9F9F9;
     --grey: #B0BEC5;
 
-    --shadow-light: 0 2px 4px rgba(0,0,0,.1);
-    --shadow-dark: 0 4px 8px rgba(0,0,0,.2);
+    --shadow-dark: 0 4px 8px #00000033;
 }
 /* CSS Reset */
 *{
@@ -30,7 +29,7 @@ body{
     font-family: var(--font-normal);
     line-height: 1.5;
     background: var(--offwhite);
-    color: #111;
+    color: var(--navy);
 }
 
 img{
@@ -61,7 +60,7 @@ p{
 
 .btn-primary{
     background: var(--blue);
-    color: #fff;
+    color: var(--offwhite);
 }
 
 .btn-primary:hover{ filter: brightness(1.5); }
@@ -91,7 +90,7 @@ p{
 .text-blue{ color: var(--blue); }
 .text-light{ color: var(--light); }
 .text-grey{ color: var(--grey); }
-.text-white{ color: #fff; }
+.text-white{ color: var(--offwhite)}
 
 /***************************** SPACING *****************************/
 .p-0{ padding: var(--space-0); }
@@ -150,7 +149,7 @@ p{
 /***************************** BASIC SITE SHELL *****************************/
 .site-header{
     background: var(--navy);
-    color: #fff;
+    color: var(--offwhite);
     box-shadow: var(--shadow-dark);
 }
 
@@ -173,14 +172,14 @@ p{
     align-items: center;
     gap: var(--space-2);
     text-decoration: none;
-    color: #fff;
+    color: var(--offwhite);
 }
 
 .brand-mark{
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    border: 2px solid rgba(255,255,255,0.25);
+    border: 2px solid var(--navy);
     display: grid;
     place-items: center;
     font-weight: 700;
@@ -208,7 +207,7 @@ p{
 
 .site-nav{
     background: var(--blue);
-    box-shadow: 0 6px 0 rgba(0,0,0,.12);
+    box-shadow: var(--shadow-dark);
 }
 
 /* Banner image with caption pinned to the bottom */
@@ -232,11 +231,21 @@ p{
     gap: var(--space-2);
     align-items: center;
     justify-content: space-between;
-    background: rgba(0,0,0,0.5);
     padding: var(--space-2);
     border-radius: 10px;
     box-shadow: var(--shadow-dark);
 }
+
+/* translucent panel behind caption using existing root colours only */
+.banner-caption::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--navy);
+    opacity: 0.75;
+    border-radius: inherit;
+}
+.banner-caption > *{ position: relative; z-index: 1; }
 
 .banner-caption h2{ margin: 0; flex: 1; }
 .banner-caption .btn{ margin-left: var(--space-2); }
@@ -264,19 +273,22 @@ p{
     display: block;
     width: 100%;
     padding: clamp(0.35rem, 0.9vw, 0.9rem) clamp(0.6rem, 1.4vw, 1.4rem);
-    background: rgba(255,255,255,.08);
+    background: var(--blue);
     border-radius: 15px;
-    color: #fff;
+    color: var(--offwhite);
     text-align: center;
     min-width: initial;
 }
 
-.site-nav a:hover{ background: rgba(255,255,255,.14); }
-.site-nav a[aria-current="page"]{ background: rgba(255,255,255,.22); font-weight: 700; }
+.site-nav a{ position: relative; overflow: hidden; }
+.site-nav a::after{ content: ""; position: absolute; inset: 0; background: var(--offwhite); opacity: 0; border-radius: inherit; pointer-events: none; }
+.site-nav a:hover::after{ opacity: 0.14; }
+.site-nav a[aria-current="page"]::after{ opacity: 0.22; }
+.site-nav a[aria-current="page"]{ font-weight: 700; }
 
 .site-footer{
     background: var(--navy);
-    color: #fff;
+    color: var(--offwhite);
     margin-top: var(--space-3);
     padding: var(--space-2) 0;
 }
@@ -285,7 +297,7 @@ p{
 .card-shell{
     display: grid;
     gap: var(--space-2);
-    border: 2px solid rgba(0,0,0,.35);
+    border: 2px solid var(--grey);
     border-radius: 10px;
     overflow: hidden;
     background: var(--offwhite);
@@ -293,9 +305,9 @@ p{
 
 .tile{
     background: var(--navy);
-    color: #fff;
+    color: var(--offwhite);
     border-radius: 20px;
-    box-shadow: 0 0.8rem 1.6rem rgba(0,0,0,.22);
+    box-shadow: var(--shadow-dark);
     min-height: 150px;
     display: grid;
     place-items: center;
