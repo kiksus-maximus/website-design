@@ -162,13 +162,10 @@ p{
     box-shadow: var(--shadow-dark);
 }
 
-/* Ensure header container has no top/bottom margins so header is flush */
 .site-header .container{
     margin: 0 auto;
 }
 
-
-/* Apply responsive padding to the header items (brand, searchbar) */
 .header-top {
     padding: clamp(0.35rem, 0.9vw, 0.9rem) 0;
 }
@@ -217,7 +214,6 @@ p{
     box-shadow: var(--shadow-dark);
 }
 
-/* Banner image with caption pinned to the bottom */
 .banner{
     position: relative;
     overflow: hidden;
@@ -243,7 +239,6 @@ p{
     box-shadow: var(--shadow-dark);
 }
 
-/* translucent panel behind caption using existing root colours only */
 .banner-caption::before{
     content: "";
     position: absolute;
@@ -257,12 +252,11 @@ p{
 .banner-caption h2{ margin: 0; flex: 1; }
 .banner-caption .btn{ margin-left: var(--space-2); }
 
-/* Ensure caption items stack on small screens */
+
 @media (max-width: 600px){
     .banner-caption{ flex-direction: column; align-items: flex-start; }
 }
 
-/* Add breathing room between banner text and other images/content */
 .banner + *{ margin-top: var(--space-2); }
 
 .site-nav ul{
@@ -358,7 +352,7 @@ p{
     .brand-name{ font-size: 25px; }
 }
 
-/***************************** HOME BANNER (HI-FI) *****************************/
+/***************************** HOME BANNER *****************************/
 .home-banner{
     background: var(--blue);
     color: var(--offwhite);
@@ -506,4 +500,49 @@ p{
     .filter-bar .d-grid{
         grid-template-columns: 1fr;
     }
+}
+
+/* Form / Apply page styles */
+.apply-form{
+    display: grid;
+    gap: 0.75rem;
+}
+.apply-form fieldset{ border: none; padding: 0; margin: 0; }
+.apply-form label{
+    display: block;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.apply-form input[type="text"],
+.apply-form input[type="email"],
+.apply-form input[type="tel"],
+.apply-form input[type="date"],
+.apply-form select,
+.apply-form textarea,
+.apply-form input[type="file"]{
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 8px;
+    background: #fff;
+    font-family: var(--font-normal);
+    font-size: 0.95rem;
+}
+.apply-form textarea{ min-height: 90px; resize: vertical; }
+.apply-form input:focus,
+.apply-form select:focus,
+.apply-form textarea:focus{
+    outline: 3px solid rgba(25,118,210,0.12);
+    border-color: var(--blue);
+}
+.form-actions{ display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+.btn-primary{ padding: 0.7rem 1.2rem; border-radius: 8px; }
+.btn-secondary{ padding: 0.6rem 1rem; border-radius: 8px; }
+.sr-only{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 600px){
+    .apply-form{ gap: 0.6rem; }
+    .form-actions{ flex-direction: column; align-items: stretch; }
+    .btn-secondary{ margin-left: 0; }
 }
